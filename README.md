@@ -1,72 +1,39 @@
-# Getting Started with Create React App
+# Todo Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small full-stack todo-list prototype. The repository contains a React client in `src/` and an Express/Mongoose API in `server.js`. The API stores todo documents in MongoDB and exposes create, list, update, and delete operations.
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+- Node.js and npm
+- MongoDB running locally or a configured MongoDB deployment
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install dependencies from the repository root:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm ci
+```
 
-### `npm test`
+Start the API:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+node server.js
+```
 
-### `npm run build`
+The API listens on port 8000 and currently connects to `mongodb://localhost:27017/mern-app`. The connection string and port should be moved to environment variables before deployment.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Method | Path | Behavior |
+|---|---|---|
+| GET | `/todos` | Return all todo documents |
+| POST | `/todos` | Create a todo using `title` and optional `description` |
+| PUT | `/todos/:id` | Update a todo by MongoDB document ID |
+| DELETE | `/todos/:id` | Delete a todo by MongoDB document ID |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Current limitations
 
-### `npm run eject`
+This is a prototype, not a multi-user task service. The API has no authentication or per-user authorization, CORS is open, input validation is minimal, and the delete handler does not distinguish a missing record. The root package manifest also has a placeholder failing test script and a local self-reference dependency. Verify dependency installation and configure a proper client build/test toolchain before relying on CI or deployment.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-Last updated: 2026-11-13 18:24 UTC
+See [architecture](docs/ARCHITECTURE.md), [API reference](docs/API.md), [development](docs/DEVELOPMENT.md), and [deployment](docs/DEPLOYMENT.md).
