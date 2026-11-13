@@ -37,3 +37,5 @@ The API listens on port 8000 and currently connects to `mongodb://localhost:2701
 This is a prototype, not a multi-user task service. The API has no authentication or per-user authorization, CORS is open, input validation is minimal, and the delete handler does not distinguish a missing record. The root package manifest also has a placeholder failing test script and a local self-reference dependency. Verify dependency installation and configure a proper client build/test toolchain before relying on CI or deployment.
 
 See [architecture](docs/ARCHITECTURE.md), [API reference](docs/API.md), [development](docs/DEVELOPMENT.md), and [deployment](docs/DEPLOYMENT.md).
+
+Last updated: 2026-11-13 19:34 UTC
