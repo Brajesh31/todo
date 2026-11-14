@@ -128,4 +128,4 @@ Do not use this service with private or sensitive tasks until authentication, au
 
 The current CI workflow checks the syntax of `server.js`. This does not test MongoDB connectivity, API behavior, frontend compilation, or CRUD correctness. A more complete pipeline should be introduced after the client package configuration and integration test setup are made coherent.
 
-Last updated: 2026-11-13 19:40 UTC
+Last updated: 2026-11-14 00:11 UTC
